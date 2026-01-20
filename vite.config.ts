@@ -150,9 +150,12 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
+const BASE_PATH = process.env.VITE_BASE ?? "/autome/"; // troque pelo nome do repo se for outro
+
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
 export default defineConfig({
+  base: BASE_PATH,
   plugins,
   resolve: {
     alias: {

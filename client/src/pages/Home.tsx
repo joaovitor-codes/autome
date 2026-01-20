@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const asset = (p: string) => `${import.meta.env.BASE_URL || "/"}${p.replace(/^\//, "")}`;
 
   // Monitorar scroll para mostrar botão "Voltar ao Topo"
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function Home() {
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src="/images/logo.png" alt="Automé" className="h-10" />
+            <img src={asset("/images/logo.png")} alt="Automé" className="h-10" />
             <span className="font-display font-bold text-lg text-primary">Automé</span>
           </div>
 
@@ -92,7 +93,7 @@ export default function Home() {
             {/* Imagem */}
             <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <img
-                src="/images/hero.jpg"
+                src={asset("/images/hero.jpg")}
                 alt="Família feliz ao lado do carro"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -172,7 +173,7 @@ export default function Home() {
           {/* Timeline Visual */}
           <div className="mb-12">
             <img
-              src="/images/timeline.png"
+              src={asset("/images/timeline.png")}
               alt="Timeline de 3 meses de benefícios"
               className="w-full max-w-4xl mx-auto"
             />
